@@ -17,6 +17,9 @@ const PORT = process.env.PORT || 5001;
 //Call the db.js to connect to the database 
 connectDB(); 
 
+//Middleware needed 
+app.use(express.json());
+
 // Use the route "/api/notes"
 app.use("/api/notes", notesRoutes);
 
