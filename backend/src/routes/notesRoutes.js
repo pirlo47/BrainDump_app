@@ -1,9 +1,12 @@
 import express from "express";
-import { createNote, deleteNote, getAllNotes, updateNote } from "../controllers/notesController.js";
+import { createNote, deleteNote, getAllNotes, updateNote, getNoteById } from "../controllers/notesController.js";
 
 const router = express.Router();
 
 router.get("/", getAllNotes);
+
+//Get specific note
+router.get("/:id", getNoteById)
 
 //Create a note endpoint
 router.post("/", createNote);
