@@ -8,10 +8,8 @@ import toast from 'react-hot-toast';
 
 const App = () => {
   return (
-    <div>
-      {/* Test button for react toast */}
-      <button onClick={() => toast.success("congrats")}>Click Me</button>
-
+    <div data-theme="synthwave">
+      
       <Routes>
         <Route path="/" element={<HomePage />} />
         <Route path="/create" element={<CreatePage />} />
