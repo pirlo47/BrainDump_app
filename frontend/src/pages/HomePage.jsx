@@ -1,11 +1,11 @@
 import React, { useEffect } from 'react'
 import { useState } from "react"
 
-
 import Navbar from "../components/Navbar.jsx"
 import RateLimitedUI from '../components/RateLimitedUI.jsx';
-import axios from "axios"
+import NoteCard from '../components/NoteCard.jsx';
 
+import axios from "axios"
 import toast from "react-hot-toast"
 
 const HomePage = () => {
@@ -50,9 +50,7 @@ const HomePage = () => {
       {notes.length > 0 && !isRateLimited && (
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
           {notes.map((notes) => (
-            <div>
-              {notes.title} | {notes.content}
-            </div>
+            <NoteCard key={notes._id} note={notes} />
           )) }
         </div>
       )}
