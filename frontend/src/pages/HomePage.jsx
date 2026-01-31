@@ -42,7 +42,7 @@ const HomePage = () => {
 ); 
 
 
-  return <div className="min-h-screen">
+  return (<div className="min-h-screen">
     <Navbar />
 
     {isRateLimited && <RateLimitedUI />}
@@ -55,13 +55,14 @@ const HomePage = () => {
 
       {notes.length > 0 && !isRateLimited && (
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
-          {notes.map((notes) => (
-            <NoteCard key={notes._id} note={notes} setNotes={setNotes} />
+          {notes.map((note) => (
+            <NoteCard key={note._id} note={note} setNotes={setNotes} />
           )) }
         </div>
       )}
     </div>
   </div>
+  );
 };
 
 export default HomePage
