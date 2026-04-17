@@ -90,6 +90,48 @@ UPSTASH_REDIS_REST_TOKEN=your_upstash_token
 | PUT | `/api/notes/:id` | Update an existing note |
 | DELETE | `/api/notes/:id` | Delete a note |
 
+## 🧪 Testing
+
+The backend uses **Jest** as the test runner with **Babel** to transpile ES module syntax (`import`/`export`) into CommonJS, which Jest requires.
+
+### Test Structure
+
+```
+backend/
+└── tests/
+    ├── unit/          # Unit tests for individual modules (middleware, utils, etc.)
+    └── functional/    # Functional/integration tests
+```
+
+### Running Tests
+
+From the `backend` directory:
+
+```bash
+# Run all tests
+npm test
+
+# Run a specific test file
+npm test -- tests/unit/rateLimiter.test.js
+```
+
+### Test Configuration
+
+| File | Purpose |
+|------|---------|
+| `jest.config.cjs` | Jest configuration — uses `.cjs` extension because `package.json` has `"type": "module"` |
+| `.babelrc` | Babel preset configured to compile ES modules to CommonJS for Jest compatibility |
+
+> **Note:** The config file is named `jest.config.cjs` (not `.js`) because the project uses `"type": "module"` in `package.json`, which makes Node.js treat all `.js` files as ES modules. Jest loads its config via `require()`, so the `.cjs` extension forces CommonJS parsing for that file only.
+
+### Mocking
+
+Tests use Jest's built-in `jest.mock()` to isolate modules. For example, the Upstash Redis client is mocked in rate limiter tests to avoid real network calls:
+
+```js
+jest.mock("../../src/config/upstash.js");
+```
+
 ## 🚀 Deployment
 
 The project is configured for easy deployment on Render:
