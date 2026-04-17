@@ -26,4 +26,18 @@ describe("RateLimiter Middleware", () => {
     expect(next).toHaveBeenCalled();
     expect(res.status).not.toHaveBeenCalled();
   });
+
+  test('should fail and not call next() if rate limit is unsuccessful', async() => {
+    //Mocking the limit function return sucess: false 
+    ratelimit.limit.mockResolvedValue({success: false}); 
+
+    await rateLimiter(req, res, next);
+    
+    //Assertations 
+    expect(res.status).toHaveBeenCalledWith(429);
+    expect(res.json).toHaveBeenCalledWith({
+      message: "Too many requests, please try again later"
+    });
+    expect(next).not.toHaveBeenCalled(); 
+  }); 
 });
