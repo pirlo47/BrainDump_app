@@ -34,13 +34,13 @@ Before you begin, ensure you have the following installed:
 ```
 ├── backend
 │   ├── src
-│   │   ├── config       # DB and Upstash configurations
-│   │   ├── controllers  # Business logic for routes
-│   │   ├── middleware   # Rate limiting and other middlewares
-│   │   ├── models       # Mongoose schemas
-│   │   ├── routes       # API endpoint definitions
-│   │   └── server.js    # Entry point for backend
-│   └── .env             # Environment variables (ignored by Git)
+│   │   ├── config       # DB and Upstash configurations. 
+│   │   ├── controllers  # Business logic for routes. 
+│   │   ├── middleware   # Rate limiting and other middlewares. 
+│   │   ├── models       # Mongoose schemas. 
+│   │   ├── routes       # API endpoint definitions. 
+│   │   └── server.js    # Entry point for backend. 
+│   └── .env             # Environment variables (ignored by Git).     
 ├── frontend
 │   ├── src
 │   │   ├── components   # Reusable UI components
