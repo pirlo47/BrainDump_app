@@ -8,7 +8,7 @@
     "build": "tsc",
     "start": "node dist/server.js",
     "typecheck": "tsc --noEmit"
-  }, 
+  },
   "keywords": [],
   "author": "",
   "license": "ISC",
